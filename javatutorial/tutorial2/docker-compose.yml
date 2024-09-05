@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      # Map the correct path of your SQLite database to the container
+      - C:/Users/naphat/tools/dbsqliteinfo:/app/dbsqliteinfo
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:sqlite:/app/dbsqliteinfo/test_springboot.db
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.sqlite.JDBC
+      SPRING_JPA_DATABASE_PLATFORM: org.hibernate.community.dialect.SQLiteDialect
+      SPRING_JPA_HIBERNATE_NAMING_PHYSICAL_STRATEGY: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
