@@ -24,7 +24,7 @@
 
 - **@ComponentScan**: Scans the specified package for Spring components. Use `excludeFilters` to exclude specific components.
 
-- **@RestController**: Combines `@Controller` and `@ResponseBody`. Handles HTTP requests and returns JSON or XML.
+- **@RestController**: Combines `@Controller` and `@ResponseBody`. Handles HTTP requests and returns.
 
 - **@RequestMapping("/path")**: Maps HTTP requests to specific handler methods or classes.
 
@@ -89,3 +89,26 @@
 - **@ResponseBody**: Indicates that the return value should be written to the HTTP response body.
 
 - **@EnableAutoConfiguration**: Automatically configures Spring beans based on classpath settings.
+
+## Add Swagger UI to Spring Boot API
+
+To add Swagger UI to Spring Boot application
+
+1. **Add the Swagger UI Dependency**: Add the following dependency to the `<dependencies>` section of `pom.xml`:
+
+   ```xml
+   <dependency>
+       <groupId>org.springdoc</groupId>
+       <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+       <version>2.2.0</version>
+   </dependency>
+   ```
+
+2. **Configure Application Properties**: Add these properties to `application.properties` file:
+
+   ```properties
+   springdoc.api-docs.enabled=true
+   springdoc.swagger-ui.enabled=true
+   ```
+
+3. **Access Swagger UI**: Start Spring Boot application and open http://127.0.0.1:8080/swagger-ui/index.html# in the browser.
